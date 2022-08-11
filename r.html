@@ -23,6 +23,12 @@ function findGetParameter(parameterName) {
 	return result;
 }
 var id = findGetParameter("id");
+var client = new XMLHttpRequest();
+client.open('GET', "https://cdn.jsdelivr.net/gh/redstonepfalz/elg-web@web/ids.json");
+client.onreadystatechange = function() {
+	alert(client.responseText);
+}
+client.send();
 if (id === null) {
 	document.write('<p class="r">Wenn Sie nicht weitergeleitet werden, klicken Sie <a href="https://play.google.com/store/apps/details?id=de.redstonepfalz.einkochen">hier</a></p>');
 	window.location.replace("https://play.google.com/store/apps/details?id=de.redstonepfalz.einkochen");
